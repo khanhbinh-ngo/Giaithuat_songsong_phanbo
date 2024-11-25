@@ -1,0 +1,1 @@
+Dòng đầu tiên gồm 2 số nguyên N, M với giá trị N thuộc [1,10^4] và M thuộc [1,10^3] lần lượt là số sản phẩm và số đặc trưng cần phân tích. N dòng tiếp theo, dòng i gồm M số nguên F[i,k] là đặc trưng thứ k của sản phẩm i. output: function MAIN(file_name = "input.txt") trả về 1 ma trận số thực (4 số sau số thập phân) là ma trận tương đồng cosine giữa các căp đặc trưng

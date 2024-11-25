@@ -1,4 +1,3 @@
-import time
 def matrix_multiply(A, B, mod=None):
     """Nhân hai ma trận A và B. Nếu mod không phải None, thực hiện modulo."""
     return [
@@ -55,13 +54,3 @@ def MAIN(filename='input.txt'):
     results = process_queries(queries)
     return results
 
-
-# Chạy chương trình
-if __name__ == "__main__":
-    starttime = time.time() 
-    results = MAIN('AlgoChallenge\input.txt')
-    endtime = time.time()
-    print(f"time in execution: {endtime - starttime:0.6f} second")
-    chunksize = 4300
-    # for i in range(0,len(results), chunksize):
-    #     print("\n".join(map(str, results[i:i + chunksize])))

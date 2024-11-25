@@ -97,3 +97,59 @@ III. Nguồn thông tin tham khảo của Bình
 [5]. https://en.vietnamplus.vn/5g-will-play-key-role-in-building-digital-economy-experts-post297425.vnp
 
 [6]. https://viettelidc.com.vn/tin-tuc/nhung-ung-dung-tiem-nang-cua-mang-5g
+
+
+
+from multiprocessing import Pool
+
+def count_occurrences(args):
+    Si, Bi = args
+    if Bi not in Si:
+        return -1
+    return Si.count(Bi)
+def MAIN(input_file_path):
+    with open(input_file_path, 'r') as f:
+        lines = f.readlines()
+    N = int(lines[0].strip())
+    pairs = [(lines[i * 2 + 1].strip(), lines[i * 2 + 2].strip()) for i in range(N)]
+
+    with multiprocessing.Pool() as pool:
+        results = pool.map(count_occurrences, pairs)
+
+    return '\n'.join(map(str, results))
+
+
+
+
+from multiprocessing import Pool
+
+def count_occurrences(args):
+    """
+    Hàm đếm số lần xuất hiện của Bi trong Si.
+    Nếu Bi không tồn tại trong Si, trả về -1.
+    """
+    Si, Bi = args
+    if Bi not in Si:
+        return -1
+    return Si.count(Bi)
+
+def MAIN(input_file_path):
+    """
+    Hàm chính để xử lý bài toán.
+    - Đọc dữ liệu từ file.
+    - Sử dụng xử lý song song để đếm số lần xuất hiện.
+    """
+    with open(input_file_path, 'r') as f:
+        lines = f.readlines()
+
+    # Đọc số lượng cặp
+    N = int(lines[0].strip())
+    # Ghép Si và Bi thành danh sách các cặp
+    pairs = [(lines[i * 2 + 1].strip(), lines[i * 2 + 2].strip()) for i in range(N)]
+
+    # Xử lý song song với multiprocessing
+    with Pool() as pool:
+        results = pool.map(count_occurrences, pairs)
+
+    # Trả về kết quả dưới dạng chuỗi
+    return '\n'.join(map(str, results))
